@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/onboarding/onboarding_screens.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,7 +11,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false, // Tắt banner debug
       title: 'Onboarding App',
       theme: ThemeData(

@@ -33,7 +33,7 @@ class OnboardingScreens extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final controller = Get.put(OnboardingController());
     return Scaffold(
-        body: Column(
+      body: Column(
       children: [
         SizedBox(
           height: screenHeight * 0.8,
@@ -61,7 +61,9 @@ class OnboardingScreens extends StatelessWidget {
                   ),
                   minimumSize: Size(double.infinity, 48),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.next_page();
+                },
                 child: Text(
                   'Next',
                   style: TextStyle(
