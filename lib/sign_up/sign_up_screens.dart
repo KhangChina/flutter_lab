@@ -12,7 +12,6 @@ class sign_up_screens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-    // TODO: implement build
     return Scaffold(
         body: SingleChildScrollView(
             child: SafeArea(
@@ -237,7 +236,7 @@ class sign_up_screens extends StatelessWidget {
                     ),
                     onPressed: controller.state_check_policy.value
                         ? () {
-                            // controller.next_page();
+                            controller.nav_to_otp();
                           }
                         : null,
                     child: Text(
