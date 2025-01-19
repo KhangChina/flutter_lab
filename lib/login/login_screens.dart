@@ -127,8 +127,7 @@ class LoginScreens extends StatelessWidget {
                 SizedBox(width: 3),
                 InkWell(
                     onTap: () {
-                      //Nav to register
-                      print("register");
+                      controller.router_sign_up();
                     },
                     child: Text("Register now",
                         style: TextStyle(
@@ -170,10 +169,10 @@ class LoginScreens extends StatelessWidget {
               children: [
                 Image.asset('assets/images/google.png',
                     fit: BoxFit.cover, width: 40, height: 40),
-                    SizedBox(width: 12),
+                SizedBox(width: 12),
                 Image.asset('assets/images/apple.png',
                     fit: BoxFit.cover, width: 40, height: 40),
-                    SizedBox(width: 12),
+                SizedBox(width: 12),
                 Image.asset('assets/images/fb.png',
                     fit: BoxFit.cover, width: 40, height: 40)
               ]),
@@ -221,7 +220,7 @@ class PasswordInput extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide:
-                            BorderSide(color: HexColor("#8F9098"), width: 2),
+                            BorderSide(color: HexColor("#006FFD"), width: 2),
                       ),
                       suffixIcon: Padding(
                         padding: EdgeInsets.only(right: 8),
