@@ -14,8 +14,9 @@ class sign_up_screens extends StatelessWidget {
     final controller = Get.put(SignUpController());
     // TODO: implement build
     return Scaffold(
-        body: SafeArea(
-            child: Column(children: [
+        body: SingleChildScrollView(
+            child: SafeArea(
+                child: Column(children: [
       Row(
         children: [
           Padding(
@@ -46,7 +47,7 @@ class sign_up_screens extends StatelessWidget {
                 padding: EdgeInsets.only(top: 24, left: 24, right: 24),
                 child: Text("Name",
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Inter',
                         color: HexColor("#1F2024")))),
@@ -98,7 +99,7 @@ class sign_up_screens extends StatelessWidget {
                 padding: EdgeInsets.only(top: 16, left: 24, right: 24),
                 child: Text("Email Address",
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Inter',
                         color: HexColor("#1F2024")))),
@@ -150,7 +151,7 @@ class sign_up_screens extends StatelessWidget {
                 padding: EdgeInsets.only(top: 16, left: 24, right: 24),
                 child: Text("Password",
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Inter',
                         color: HexColor("#1F2024")))),
@@ -167,9 +168,10 @@ class sign_up_screens extends StatelessWidget {
               size: 30,
               borderWidth: 0,
               borderColor: HexColor("#FFFFFF"),
-              isChecked: false,
-              onTap: (bool? value) {},
-              animationDuration: const Duration(seconds: 1),
+              isChecked: controller.state_check_policy.value,
+              onTap: (bool? value) {
+                controller.state_check_policy_change();
+              },
               checkedColor: HexColor("#FFFFFF"),
               uncheckedWidget: Center(
                   child: Image.asset("assets/images/uncheck.png",
@@ -183,11 +185,10 @@ class sign_up_screens extends StatelessWidget {
                 child: RichText(
               text: TextSpan(
                 style: TextStyle(
-                    fontSize: 16, color: Colors.black), // Style mặc định
+                    fontSize: 16, color: HexColor("#8F9098")), // Style mặc định
                 children: [
                   TextSpan(
                     text: "I've read and agree with the ",
-                    style: TextStyle(color: Colors.black),
                   ),
                   TextSpan(
                     recognizer: TapGestureRecognizer()
@@ -197,11 +198,11 @@ class sign_up_screens extends StatelessWidget {
                       },
                     text: "Terms and Conditions",
                     style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                        color: HexColor("#006FFD"),
+                        fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
                     text: " and the ",
-                    style: TextStyle(color: Colors.black),
                   ),
                   TextSpan(
                     text: "Privacy Policy.",
@@ -211,7 +212,8 @@ class sign_up_screens extends StatelessWidget {
                         print("Privacy Policy.");
                       },
                     style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                        color: HexColor("#006FFD"),
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -223,32 +225,35 @@ class sign_up_screens extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(top: 24, left: 24, right: 24),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: HexColor("#006FFD"),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                  ),
-                  minimumSize: Size(double.infinity, 48),
-                ),
-                onPressed: () {
-                  //controller.next_page();
-                },
-                child: Text(
-                  'Register and send OTP',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Inter',
-                      color: HexColor("#FFFFFF")),
-                ),
-              ),
-            ),
+                padding: EdgeInsets.only(top: 24, left: 24, right: 24),
+                child: Obx(() {
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: HexColor("#006FFD"),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                      minimumSize: Size(double.infinity, 48),
+                    ),
+                    onPressed: controller.state_check_policy.value
+                        ? () {
+                            // controller.next_page();
+                          }
+                        : null,
+                    child: Text(
+                      'Register',
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Inter',
+                          color: HexColor("#FFFFFF")),
+                    ),
+                  );
+                })),
           )
         ],
       ),
-    ])));
+    ]))));
   }
 }
 
