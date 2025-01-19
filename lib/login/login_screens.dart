@@ -23,7 +23,7 @@ class LoginScreens extends StatelessWidget {
         Row(children: [
           Padding(
             padding: EdgeInsets.only(top: 40, left: 24),
-            child: Text("Welcome",
+            child: Text("Welcome!",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 24,
@@ -70,7 +70,114 @@ class LoginScreens extends StatelessWidget {
             ),
           )
         ]),
-        PasswordInput()
+        PasswordInput(),
+        Row(children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16, left: 24),
+            child: Text("Forgot password?",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Inter',
+                    color: HexColor("#006FFD"))),
+          )
+        ]),
+        Row(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(top: 24, left: 24, right: 24),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: HexColor("#006FFD"),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    minimumSize: Size(double.infinity, 48),
+                  ),
+                  onPressed: () {
+                    //controller.next_page();
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Inter',
+                        color: HexColor("#FFFFFF")),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 16, left: 24, right: 24),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Not a member?",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: 'Inter',
+                        color: HexColor("#71727A"))),
+                SizedBox(width: 3),
+                InkWell(
+                    onTap: () {
+                      //Nav to register
+                      print("register");
+                    },
+                    child: Text("Register now",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.bold,
+                            color: HexColor("#006FFD")))),
+              ]),
+        ),
+        Row(
+          children: [
+            Expanded(
+                child: Padding(
+              padding:
+                  EdgeInsets.only(top: 16, left: 24, right: 24, bottom: 24),
+              child: Divider(
+                color: HexColor("#D4D6DD"), // Màu sắc của đường kẻ
+                thickness: 0.5, // Độ dày của đường kẻ
+              ),
+            ))
+          ],
+        ),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Or continue with",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'Inter',
+                      color: HexColor("#71727A")))
+            ]),
+        Padding(
+          padding: EdgeInsets.only(top: 16),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset('assets/images/google.png',
+                    fit: BoxFit.cover, width: 40, height: 40),
+                    SizedBox(width: 12),
+                Image.asset('assets/images/apple.png',
+                    fit: BoxFit.cover, width: 40, height: 40),
+                    SizedBox(width: 12),
+                Image.asset('assets/images/fb.png',
+                    fit: BoxFit.cover, width: 40, height: 40)
+              ]),
+        )
       ],
     )));
   }
@@ -114,7 +221,7 @@ class PasswordInput extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide:
-                            BorderSide(color: HexColor("#006FFD"), width: 2),
+                            BorderSide(color: HexColor("#8F9098"), width: 2),
                       ),
                       suffixIcon: Padding(
                         padding: EdgeInsets.only(right: 8),
