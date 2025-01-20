@@ -191,7 +191,7 @@ class HomeScreens extends StatelessWidget {
                 ],
               )),
           Padding(
-            padding: EdgeInsets.only(top: 24),
+            padding: EdgeInsets.only(top: 16),
             child: SizedBox(
               height: 189,
               child: ListView.builder(
@@ -200,26 +200,11 @@ class HomeScreens extends StatelessWidget {
                 itemCount: items.length, // Số lượng phần tử trong danh sách
                 itemBuilder: (context, index) {
                   var item = items[index];
-                  return Column(
-                    children: [
-                      SizedBox(
-                        width: 200,
-                        height: 120,
-                        child: Image.asset(item["image"], fit: BoxFit.cover),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("asd", textAlign: TextAlign.left)
-                          ]), // Tên
-                      //Expanded(child: Text("\$${item["price"]}")), // Giá
-                    ],
-                  );
+                  return ItemProduct();
                 },
               ),
             ),
-          )
+          ),
         ]))));
   }
 }
@@ -245,5 +230,73 @@ class NavigateItemHome extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class ItemProduct extends StatelessWidget {
+  const ItemProduct({super.key});
+  @override
+  Widget build(Object context) {
+    return Padding(
+        padding: EdgeInsets.only(right: 8),
+        child: SizedBox(
+          width: 200,
+          // height: 189,
+          child: Column(
+            children: [
+              SizedBox(
+                width: 200,
+                height: 120,
+                child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ),
+                    child: Image.asset("assets/images/onboarding_images.png",
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                width: 200,
+                height: 69,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      color: HexColor("#F7F8FD"),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(16),
+                        bottomRight: Radius.circular(16),
+                      ) // Màu nền cho Row
+                      ),
+                  child: Column(children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 16, top: 16),
+                          child: Text(
+                            "Name product",
+                            style: TextStyle(
+                                color: HexColor("#1F2024"), fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 16),
+                          child: Text("12.00",
+                              style: TextStyle(
+                                  color: HexColor("#1F2024"),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.left),
+                        ),
+                      ],
+                    ),
+                  ]), // Tên,
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
