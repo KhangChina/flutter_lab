@@ -2,6 +2,8 @@
 import 'package:flutter_application_1/sign_up/sign_up_screens.dart';
 import 'package:get/get.dart';
 
+import '../home/home_screens.dart';
+
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
 
@@ -14,5 +16,10 @@ class LoginController extends GetxController {
   }
   void router_sign_up(){
       Get.to(() => sign_up_screens());
+  }
+  void router_login()
+  {
+     Get.to(() => HomeScreens());
+    
   }
 }
