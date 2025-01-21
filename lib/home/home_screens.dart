@@ -230,7 +230,7 @@ class productGroupPerfect extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  print("Notification image clicked");
+                  controller.nav_to_products_detail();
                 },
                 borderRadius: BorderRadius.circular(8.0),
                 child: Text("See more",

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_1/products/products_list.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -41,21 +42,9 @@ class HomeController extends GetxController {
   void update_current_page_changed(index) {
     currentPageIndex.value = index;
   }
-  // void update_current_page_changed(index) {
-  //   currentPageIndex.value = index;
-  // }
+  void nav_to_products_detail()
+  {
+     Get.to(() => product_list_screens()); 
 
-  // void next_page() {
-  //   if (currentPageIndex.value >= 2) {
-  //     Get.off(() => MainScreens());
-  //     return;
-  //   }
-
-  //   currentPageIndex.value += 1;
-  //   pageController.animateToPage(
-  //     currentPageIndex.value,
-  //     duration: const Duration(milliseconds: 300),
-  //     curve: Curves.easeInOut,
-  //   );
-  // }
+  }
 }
