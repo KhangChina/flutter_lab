@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_application_1/login/login_screens.dart';
+import 'package:flutter_application_1/main_screens.dart';
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
@@ -14,7 +14,7 @@ class OnboardingController extends GetxController {
 
   void next_page() {
     if (currentPageIndex.value >= 2) {
-      Get.off(() => LoginScreens());
+      Get.off(() => MainScreens());
       return;
     }
 
