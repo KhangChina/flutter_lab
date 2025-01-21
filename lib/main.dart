@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/main_screens.dart';
 import 'package:flutter_application_1/onboarding/onboarding_screens.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue, // Chủ đề chính
       ),
-      home: const OnboardingScreens(),
+      home: MainScreens(),
     );
   }
 }
